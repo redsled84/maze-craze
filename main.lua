@@ -4,14 +4,13 @@ local AdvTiledLoader = require("AdvTiledLoader.Loader")
 require("camera")
 require("player")
 
-gameState = "level5"
+gameState = "level1"
 
 function levelDraw(level)
 	level:setDrawRange(0, 0, level.width * level.tileWidth, level.height * level.tileHeight)
 end
 
 function love.load()
-	
 	love.graphics.setBackgroundColor(255,255,255)
 	bigFont = love.graphics.setNewFont("manaspc.ttf", 24)
 	smallFont = love.graphics.setNewFont("manaspc.ttf", 14)
@@ -54,39 +53,27 @@ function love.load()
 	mapWidth = 480
 	mapHeight = 480
   
-	
 	function player:right()
-		
 		self.x_vel = self.speed
-	
 	end
 	
 	function player:left()
-		
 		self.x_vel = -1 * (self.speed)
-	
 	end
 
 	function player:up()
-		
 		self.y_vel = -1 * (self.speed)
-	
 	end
 
 	function player:down()
-		
 		self.y_vel = self.speed
-	
 	end
 	
 	function player:stop()
-		
 		self.x_vel = 0
-	
 	end
 	
 	function player:collide(event)
-
 		if event == "floor" then
 			self.y_vel = 0
 			self.standing = true
@@ -94,23 +81,17 @@ function love.load()
 		if event == "cieling" then
 			self.y_vel = 0
 		end
-	
 	end
 	
 	function player:update(dt)
-
-		
 		self.state = self:getState()
-
 	end
 	
 	function player:isColliding(map, x, y)
-
 		local layer = map.tl["Solid"]
 		local tileX, tileY = math.floor(x / map.tileWidth), math.floor(y / map.tileHeight)
 		local tile = layer.tileData(tileX, tileY)
 		return not(tile == nil)
-
 	end
 	
 	function player:getState()
@@ -181,12 +162,10 @@ function love.load()
 				player.died = true
 			end
 		end
-end	
-
+	end
 end
 
 function playerUpdate(dt)
-	
 	if dt > 0.05 then
 		dt = 0.05
 	end
@@ -204,23 +183,19 @@ function playerUpdate(dt)
 	end
 
 	player:update(dt)
-
 end
 
 function playerKeyReleased(key)
-
 	if (key == "left") or (key == "right") then
 		player.x_vel = 0
 	end
 	if (key == "up") or (key == "down") then
 		player.y_vel = 0
 	end
-
 end
 
 	
 function love.update(dt)
-	
 	playerUpdate(dt)
 	if love.keyboard.isDown("escape") then
 		love.event.quit()
@@ -232,11 +207,9 @@ function love.update(dt)
 		elseif love.keyboard.isDown("down") then
 			menuSelection = "Quit"
 		end
-	
 	if love.keyboard.isDown(" ", "enter") and gameState == "title" then
 		if menuSelection == "Play" then
 			gameState = "level1"
-
 		elseif menuSelection == "Quit" then
 			love.event.quit()
 		end
@@ -248,8 +221,6 @@ function love.update(dt)
 			player.x = 48
 			player.y = 48
 			player.died = false
-
-
 		elseif player.y < 40 then
 			gameState = "level2"
 		end
@@ -420,6 +391,5 @@ function love.draw()
 end
 	
 function love.keyreleased(key)
-	
 	playerKeyReleased(key)
 end
