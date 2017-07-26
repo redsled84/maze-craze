@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="yeah1" tilewidth="16" tileheight="16">
+  <image source="yeah.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="5" name="yeah2" tilewidth="16" tileheight="16">
+  <image source="yeah2.png" width="32" height="32"/>
+ </tileset>
+ <layer name="Solid" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzVVe0OxCAIw+n7P/NlP0hMjwJ+XE6bNNMp1A2BIiJlgrUbP7CWmddFoh82V+A58D0D85Odv2dpf9adsVtd3+0XwezRDwLXT9UdjW+T7zwrsq7L7PWp7PWqY5fVRbA8Yv5v0x2pG1Zco/dYf3fpevG26vWo7ipu08XeyuLXj3fcq0zPbTCeqSPsXs3iVl3L3ou3p+vdD9wX5SnLZ+v7rP3Z/xr1S6bL/Jyiq/nI+vATEPMa85vpaj6yuERkeyPdX+MU3ShuLO6jZHU2oucvy9fPB+JPBFk=
+  </data>
+ </layer>
+ <layer name="Finish" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzbkRADAIwDCaPPtPHMpMABTSnWtH1FjZLnr9TnYbvgAAANM9ae8AGw==
+  </data>
+ </layer>
+</map>
